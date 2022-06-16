@@ -11,6 +11,15 @@ function Inputs() {
             <UilSearch size={30} className="text-white cursor-pointer hover:scale-125 transition ease-out"/>
             <UilLocationPoint size={30} className="text-white cursor-pointer hover:scale-125 transition ease-out"/>
         </div>
+        <div className='flex flex-row w-1/4 items-center justify-center'>
+          <button name='imperial' className='text-xl text-white font-light'>
+          °F
+          </button >
+          <p className='text-xl text-white font-light ml-2 mr-1'>|</p>
+          <button name='metric' className='text-xl text-white font-light'>
+          °C
+          </button>
+        </div>
     </div>
   )
 }
