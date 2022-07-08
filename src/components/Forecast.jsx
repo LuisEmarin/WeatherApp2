@@ -10,27 +10,27 @@ function Forecast({ title }) {
         <div className='flex flex-row items-center justify-between text-white'>
             <div className='flex flex-col items-center justify-center'>
                 <p className='font-light text-sm'>time </p>
-                <img src="" alt="weather icon" className='w-12 my-1' />
+                <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weather icon" className='w-12 my-1' />
                 <p className='font-medium'>85°</p>
             </div>
             <div className='flex flex-col items-center justify-center'>
                 <p className='font-light text-sm'>time </p>
-                <img src="" alt="weather icon" className='w-12 my-1' />
+                <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weather icon" className='w-12 my-1' />
                 <p className='font-medium'>85°</p>
             </div>            
             <div className='flex flex-col items-center justify-center'>
                 <p className='font-light text-sm'>time </p>
-                <img src="" alt="weather icon" className='w-12 my-1' />
+                <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weather icon" className='w-12 my-1' />
                 <p className='font-medium'>85°</p>
             </div>            
             <div className='flex flex-col items-center justify-center'>
                 <p className='font-light text-sm'>time </p>
-                <img src="" alt="weather icon" className='w-12 my-1' />
+                <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weather icon" className='w-12 my-1' />
                 <p className='font-medium'>85°</p>
             </div>
             <div className='flex flex-col items-center justify-center'>
                 <p className='font-light text-sm'>time </p>
-                <img src="" alt="weather icon" className='w-12 my-1' />
+                <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="weather icon" className='w-12 my-1' />
                 <p className='font-medium'>85°</p>
             </div>
         </div>
