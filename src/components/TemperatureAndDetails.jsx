@@ -2,7 +2,8 @@ import React from 'react'
 import {UilArrowUp,UilArrowDown,UilTemperature,UilTear,UilWind,UilSun,UilSunset} from '@iconscout/react-unicons'
 import {formatToLocalTime, iconUrlFromCode} from '../Api/WeatherCalls'
 
-function TemperatureAndDetails({weather :{
+function TemperatureAndDetails({
+    weather :{
     details, icon, temp, temp_min, temp_max, sunrise, sunset, speed, humidity, feels_like, timezone,},
 }) {
   return (
