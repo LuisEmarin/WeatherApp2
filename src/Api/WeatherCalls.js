@@ -3,14 +3,18 @@ import {DateTime} from 'luxon'
 const API_KEY = "c9a5062f17e3e62297238c89b47260b3";
 const BASE_URL = "https://api.openweathermap.org/data/2.5"
 
-const getWeatherData = (infoType, searchParams) => {
+const getWeatherData = async (infoType, searchParams) => {
     const url = new URL(BASE_URL + "/" + infoType);
     url.search = new URLSearchParams({...searchParams, appid : API_KEY});
     
-
-    return fetch(url).then((res) => res.json());
+    console.log(url)
+    console.log(url.search)
     
-
+    const res = await fetch(url);
+    // console.log(res.json())  I wanted to see if i got a response//
+    return await res.json();
+    
+    
 };
 
 const formatCurrentWeather = (data) => {
@@ -24,7 +28,9 @@ const formatCurrentWeather = (data) => {
         wind: {speed},
     } = data
 
-    const {main: details, icon} = weather[0]
+    const {main: details, icon} = weather[0];
+
+    console.log(data)
 
     return {lat, lon, temp, feels_like, temp_min, temp_max, humidity, name, dt, country, sunrise, sunset, details, icon, speed};
 };
@@ -44,17 +50,29 @@ const formatForecastWeather = (data) => {
             icon: d.weather[0].icon
         }
     });
+
     return {timezone, daily, hourly}
 }
 
-const getFormattedWeatherData  = async (searchParams) => {
-    const formattedCurrentWeather = await  getWeatherData("weather", searchParams).then(formatCurrentWeather);
-    const {lat, lon} = formattedCurrentWeather;
+const getFormattedWeatherData = async (searchParams) => {
+    const formattedCurrentWeather = await getWeatherData(
+      "weather",
+      searchParams
+      
+    ).then(formatCurrentWeather);
+    console.log()
+    const { lat, lon } = formattedCurrentWeather;
+  
     const formattedForecastWeather = await getWeatherData("onecall", {
-        lat, lon, exclude: "current,minutely,alerts", units: searchParams.units
+      lat,
+      lon,
+      exclude: "current,minutely,alerts",
+      units: searchParams.units,
     }).then(formatForecastWeather);
 
-    return {...formattedCurrentWeather,...formattedForecastWeather};
+    console.log(formattedForecastWeather)
+
+    return { ...formattedCurrentWeather, ...formattedForecastWeather };
 };
 
 const formatToLocalTime = (secs, zone, format = "cccc, dd LLL yyyy' | Local time:'hh:mm a"
